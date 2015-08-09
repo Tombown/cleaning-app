@@ -1,0 +1,17 @@
+extends layout
+block content
+	include nav
+	.container
+		row
+			.signup
+				h1.logo-font.text-center Clapp
+				h3.text-center for clean living
+				if login 
+					p Latest offers
+				else
+					.register
+						include signup
+					#message
+						if message
+							h1.text-center.error-message #{message}
+	include footer

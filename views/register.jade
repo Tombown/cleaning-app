@@ -1,0 +1,19 @@
+extends layout
+block content
+	.container
+		include nav
+		.row
+			h1.text-center.login-title Registration Details
+				.signup-wall
+					form(class='form-signin', action='/signup', method='POST')
+						input.form-control(type='text', name='username', placeholder='Username',required, autofocus)
+						input.form-control.nomargin(type='password', name='password', placeholder='Password', required)
+						input.form-control(type='email', name='email', placeholder='Email',required)
+						input.form-control(type='text', name='firstName', placeholder='First Name',required)
+						input.form-control(type='text', name='lastName', placeholder='Last Name',required)
+						button.btn.btn-lg.btn-primary.btn-block(type='submit') Register
+						span.clearfix
+				#message
+					if message
+						h1.text-center.error-message #{message}
+	include footer

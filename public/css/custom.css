@@ -1,0 +1,24 @@
+.logo-font {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 72px;
+  color: #ffa621;
+}
+
+.signup {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.icon {
+  width: 32px;
+}
+
+.content {
+  background-color: #efefef;
+}
+
+/* Timepicker */
+
+.input-group-addon {
+  cursor: pointer;
+}

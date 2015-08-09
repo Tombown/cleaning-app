@@ -1,0 +1,41 @@
+extends layout
+block content
+  include nav
+  #content.container
+    h2 Order Confirmation
+      | &#x9;&#x9;
+      form#order.simple_form.form-horizontal.new_order(accept-charset='UTF-8', action='/order', method='GET', novalidate='novalidate')
+        .control-group
+          label.string.optional.control-label(for='order_amount') Amount
+          | &#x9;&#x9;&#x9;&#x9;
+          .controls
+            label.checkbox
+              | {amount} {#orders}{.}
+              br
+              | {/orders}
+            |  
+            input#order_amount(name='order_amount', type='hidden', value='{amount}')
+        | &#x9;&#x9;&#x9;
+        .control-group
+          label.string.optional.control-label(for='order_description') Description
+          | &#x9;&#x9;&#x9;&#x9;
+          .controls
+            label.checkbox  {desc} 
+            |  
+            input#order_description(name='order_description', type='hidden', value='{desc}')
+        | &#x9;&#x9;&#x9;
+        .control-group.select.optional
+          label.select.optional.control-label(for='order_payment_method') Payment method
+          | &#x9;&#x9;&#x9;&#x9;
+          .controls
+            select#order_payment_method.select.optional(name='order_payment_method')
+              | {#credit_card}                            
+              option(value='credit_card') Credit Card
+              |                         {/credit_card}
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              option(value='paypal') PayPal
+        | &#x9;&#x9;&#x9;
+        .form-actions
+          input.btn.btn.btn-primary(name='commit', type='submit', value='Place Order')
+
+  include footer

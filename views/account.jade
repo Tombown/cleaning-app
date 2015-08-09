@@ -1,0 +1,70 @@
+extends layout
+block content
+  include nav
+  link(rel='stylesheet', href="/css/timepicker.css")
+  .container
+    row
+      .col-md-8.col-md-8.clearfix.content
+        h2 Welcome #{user.username}
+        .col-md-12
+          p How many hours do you need a cleaner for?
+          .input-group.input-group-lg
+            span.input-group-btn
+              button.btn.btn-default(type='button', data-value='decrease', data-target='#spinner', data-toggle='spinner')
+                span.glyphicon.glyphicon-minus
+            input#spinner.form-control.input-number(type='text', data-ride='spinner', value='2')
+            span.input-group-btn
+              button.btn.btn-default(type='button', data-value='increase', data-target='#spinner', data-toggle='spinner')
+                span.glyphicon.glyphicon-plus
+        .col-md-6
+          p When do you need a cleaner?
+          .input-group.input-group-lg
+            input#datepicker.form-control(data-provide="datepicker" type="text")
+        .col-md-6
+          p What time do you want the cleaner?
+          .input-group.bootstrap-timepicker.timepicker.input-group-lg
+            input#timepicker1.form-control(type="text")       
+            span.input-group-addon
+              i.glyphicon.glyphicon-time
+        .col-md-12#extras
+          p Do you need any extras?
+          a.btn.btn-default.extra
+            img.icon(src="/images/oven.svg")
+            span
+            span.price
+              | 10
+          a.btn.btn-default.extra
+            img.icon(src="/images/house.svg")
+            span.price
+              | 20
+          a.btn.btn-default.extra
+            img.icon(src="/images/house.svg")
+            span.price
+              | 60
+      .col-md-4.content
+        h2 Summary 
+        .col-md-6
+          #date-title
+          #date-display
+        .col-md-6
+          p Time
+        #basket
+        h3 Total 
+          span.total_price
+        .btn.btn-primary.btn-lg.btn-block Book
+        //- a.btn.btn-default(type="submit")
+          | Book
+  
+
+  include footer
+  script(src="/js/bootstrap-timepicker.js")
+  script.
+    $('#timepicker1').timepicker();
+  script(src='/js/extras.js')
+  script(src='/js/bootstrap-spinner.js')
+  script(src='/js/bootstrap-datepicker.min.js')
+  script(src='/js/bootstrap-datepicker.en-GB.min.js')
+  script(src="/js/datepicker-display.js")
+  //- script(src="/moment.js")
+  //- script.
+  //-   moment().format();
